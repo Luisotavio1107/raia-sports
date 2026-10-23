@@ -39,7 +39,7 @@ Os dados ficam em arquivos (PHP e JSON), então a loja roda em qualquer computad
 
 | Tecnologia | Uso |
 |---|---|
-| PHP 8.4| Back-end e páginas |
+| PHP 7.4| Back-end e páginas |
 | HTML5 e CSS | Estrutura e visual (`assets/style.css`) |
 | Sessões PHP | Carrinho e usuário logado |
 | Servidor embutido do PHP | Execução local |
@@ -90,6 +90,9 @@ raia-sports/
 ```
 
 ## Como o sistema funciona
+
+<img width="1098" height="792" alt="image" src="https://github.com/user-attachments/assets/fb3d4474-09f1-4fe3-9621-6c3e98fab9b2" />
+
 
 ### Página inicial (`index.php`)
 
