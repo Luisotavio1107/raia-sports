@@ -39,17 +39,14 @@ Os dados ficam em arquivos (PHP e JSON), então a loja roda em qualquer computad
 
 | Tecnologia | Uso |
 |---|---|
-| PHP 7.4+ | Back-end e páginas |
+| PHP 8.4| Back-end e páginas |
 | HTML5 e CSS | Estrutura e visual (`assets/style.css`) |
 | Sessões PHP | Carrinho e usuário logado |
-| JSON | Armazenamento de usuários e pedidos |
 | Servidor embutido do PHP | Execução local |
 
-Nenhuma extensão de banco de dados é necessária. Só a extensão `json` do PHP.
 
 ## Como executar
 
-**Requisito:** PHP 7.4 ou superior.
 
 **Windows:** dê dois cliques em `iniciar.bat`.
 
@@ -61,17 +58,7 @@ php -S localhost:8000
 
 Depois acesse <http://localhost:8000>.
 
-### Se algo não funcionar
 
-Abra <http://localhost:8000/diagnostico.php>. A página verifica:
-
-- a versão do PHP;
-- se todos os arquivos do projeto existem;
-- se a pasta `database/` aceita escrita;
-- se as sessões funcionam;
-- se os 12 produtos carregam.
-
-> Apague o `diagnostico.php` depois de usar.
 
 ## Estrutura de pastas
 
@@ -127,7 +114,6 @@ Depois de cada ação a página redireciona para si mesma (padrão *Post/Redirec
 
 ### Login, cadastro, checkout e pedidos
 
-`login/login.php`, `login/registrar.php` e `login/logout.php` cuidam da autenticação, com dados em `database/usuarios.json`. `app/checkout.php` e `app/pedidos.php` finalizam a compra e listam os pedidos, gravados em `database/pedidos.json`.
 
 > [Complete esta parte: campos do cadastro, como a senha é guardada e o que o checkout pede.]
 
@@ -156,7 +142,7 @@ Definidas em `includes/`:
 ## Dados
 
 - **Produtos:** edite `database/produtos.php`. Cada produto tem `id`, `nome`, `categoria`, `preco`, `descricao`, `icone` (emoji) e `cor` (fundo do cartão).
-- **Usuários e pedidos:** `database/usuarios.json` e `database/pedidos.json`, criados automaticamente no primeiro cadastro e na primeira compra. A pasta `database/` precisa de permissão de escrita.
+
 
 ## Segurança
 
@@ -164,11 +150,10 @@ Definidas em `includes/`:
 - **XSS:** os textos exibidos passam por `e()`.
 - **Validação:** o `id` do produto é convertido para inteiro com `(int)`.
 - **Post/Redirect/Get:** evita ações duplicadas ao recarregar.
-- **Atenção:** remova o `diagnostico.php` antes de publicar o site. Arquivos JSON não substituem um banco de dados quando há muitos acessos ao mesmo tempo.
+- **Atenção:** remova o `diagnostico.php` antes de publicar o site.
 
 ## Melhorias futuras
 
-- Trocar os arquivos JSON por MySQL ou SQLite.
 - Controle de estoque e pagamento real.
 - Busca por nome e ordenação por preço.
 - Imagens reais dos produtos no lugar de emojis.
